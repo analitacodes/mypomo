@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 #
 
-root "posts#index"
-get "/tasks", to: "tasks#index"
+root "tasks#index"
+resources :tasks
 end
