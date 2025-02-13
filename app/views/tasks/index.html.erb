@@ -5,10 +5,12 @@
 
 <h1>Tasks</h1>
 
+<%= link_to "New Task", new_task_path %>
+
 <div id="tasks">
   <% @tasks.each do |task| %>
     <div>
-      <%= task.name %>
+      <%= link_to task.name, task %>
     </div>
   <% end %>
 </div>
