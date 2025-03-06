@@ -46,4 +46,9 @@ class TasksController < ApplicationController
     def task_params
       params.expect(task: [ :name ])
     end
+
+        # Only allow a list of trusted parameters through.
+        def product_params
+          params.expect(product: [ :name, :description ])
+        end
 end

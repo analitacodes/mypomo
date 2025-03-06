@@ -7,3 +7,9 @@ class Task < ApplicationRecord
 
   # this is to make sure the information is true when obtaining it from the user
 end
+
+
+class Task
+  has_rich_text :description
+  validates :name, presence: true
+end

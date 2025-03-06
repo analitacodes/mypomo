@@ -1,1 +1,13 @@
+<%= form_with model: task do |form| %>
+  <%# ... %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
 

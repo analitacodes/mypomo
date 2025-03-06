@@ -1,5 +1,12 @@
 <h1><%= @task.name %></h1>
 
 <%= link_to "Back", tasks_path %>
+<% if authenticated? %>
 <%= link_to "Edit", edit_task_path(@task) %>
 <%= button_to "Delete", @task, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% end %>
+
+<% cache @task do %>
+  <h1><%= @task.name %></h1>
+  <%= @task.description %>
+<% end %>
