@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy ], if: -> { self.class.name == "TasksController" }
 
   def index
         @tasks = Task.all # tasks are plural here bc index will show all of the tasks
