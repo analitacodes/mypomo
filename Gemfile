@@ -29,7 +29,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.18.5', require: false
+gem "bootsnap", ">= 1.18.5", require: false
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
@@ -45,7 +45,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem 'brakeman', '~> 7.1.0', require: false
+  gem "brakeman", "~> 7.1.0", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
