@@ -29,7 +29,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem 'bootsnap', '>= 1.18.5', require: false
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
@@ -45,7 +45,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", require: false
+  gem 'brakeman', '~> 7.1.0', require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
@@ -54,10 +54,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'pry'
-  gem 'pry-rails' # adds pry as the default console
-  gem 'pry-byebug' # lets you step through code
-
+  gem "pry"
+  gem "pry-rails" # adds pry as the default console
+  gem "pry-byebug" # lets you step through code
 end
 
 group :test do

@@ -1,4 +1,4 @@
-require_relative 'pomodoro/timer'
+require_relative "pomodoro/timer"
 
 puts "🔥 test_timer.rb is running"
 
