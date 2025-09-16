@@ -3,7 +3,7 @@
       def start
         @output = capture_timer_output
       end
-    
+      
       private
     
       def capture_timer_output
