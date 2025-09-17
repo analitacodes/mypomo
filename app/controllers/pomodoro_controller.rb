@@ -1,6 +1,6 @@
 
     class PomodoroController < ApplicationController
-      allow_unauthenticated_access only: [:start]
+      allow_unauthenticated_access only: [ :start ]
       def start
         @output = capture_timer_output
       end
