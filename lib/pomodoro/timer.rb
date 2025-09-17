@@ -1,5 +1,3 @@
-require "pry"
-
 module Pomodoro
 class Timer # Starts the countdown of work minutes, break minutes, and completing pomo session
     attr_reader :work_minutes, :break_minutes
@@ -47,5 +45,5 @@ end
 end
 
 # To test:
-# timer = PomodoroTimer.new
+# timer = Pomodoro::Timer.new
 # timer.start
