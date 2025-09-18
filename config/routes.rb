@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
-  get "pomodoro/start"
   resource :session
   resources :passwords, param: :token
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+# Home = single-page dashboard (task input + timer + recent sessions/prompt)
+root "dashboard#show"
 
 
-  get "up" => "rails/health#show", as: :rails_health_check
-
-# Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-# get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-# get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-#
-
-root "tasks#index"
-get "/pomodoro", to: "pomodoro#start"
-
+# Tasks still available for CRUD (scoped to current_user in controller)
 resources :tasks
+
+# Single endpoint the page will POST to after a Pomodoro ends (when signed in)
+resources :focus_sessions, only: [ :create ]
+
+get "up" => "rails/health#show", as: :rails_health_check
 end
