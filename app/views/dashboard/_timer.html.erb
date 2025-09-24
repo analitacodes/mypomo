@@ -1,0 +1,29 @@
+<div class="mypomo-card" style="padding:12px;border:1px solid #ddd;border-radius:12px;max-width:460px;">
+  
+  <!-- Task input -->
+  <label for="task-input">Task</label>
+  <%= text_field_tag :task, nil,
+        id: "task-input",
+        placeholder: "What are you focusing on?",
+        style: "width:100%;padding:8px;margin:4px 0 10px;" %>
+
+  <!-- Length input -->
+  <label for="length-input">Length (minutes)</label>
+  <%= number_field_tag :length_minutes, default_timer_minutes,
+        id: "length-input",
+        min: 1, step: 1,
+        style: "width:100%;padding:8px;margin:4px 0 12px;" %>
+
+  <!-- Countdown display (static for now; logic comes later) -->
+  <div id="timer-display"
+       style="font-size:48px;text-align:center;margin:8px 0;">
+    <%= mmss_for(default_timer_minutes) %>
+  </div>
+
+  <!-- Buttons (placeholders in this PR) -->
+  <div style="display:flex;gap:8px;">
+    <%= button_tag "Start", type: "button", style: "flex:1;padding:10px;" %>
+    <%= button_tag "Stop",  type: "button", style: "flex:1;padding:10px;" %>
+    <%= button_tag "Reset", type: "button", style: "flex:1;padding:10px;" %>
+  </div>
+</div>
