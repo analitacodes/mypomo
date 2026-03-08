@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_06_003229) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_08_184559) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_06_003229) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "focus_sessions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
+    t.integer "duration_minutes"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_focus_sessions_on_task_id"
+    t.index ["user_id"], name: "index_focus_sessions_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -77,5 +88,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_06_003229) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "focus_sessions", "tasks"
+  add_foreign_key "focus_sessions", "users"
   add_foreign_key "sessions", "users"
 end
