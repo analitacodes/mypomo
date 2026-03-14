@@ -21,8 +21,38 @@ RSpec.describe FocusSessions::CreateSession do
         task_id: task.id,
         duration_minutes: 25
       ).call
-      
+
       expect(FocusSession.last.duration_minutes).to eq(25)
+    end
+
+    it "verifies if user is present" do
+      expect {
+        FocusSessions::CreateSession.new(
+          user: nil,
+          task_id: task.id,
+          duration_minutes: 25
+        ).call
+      }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+
+    it "verifies if task_id is present" do
+      expect {
+        FocusSessions::CreateSession.new(
+          user: user,
+          task_id: nil,
+          duration_minutes: 25
+        ).call
+     }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+
+    it "verifies that a session is greater than 0" do
+      expect{
+        FocusSessions::CreateSession.new(
+          user: user,
+          task_id: task.id,
+          duration_minutes: 0
+        ).call
+      }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 end
