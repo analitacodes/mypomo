@@ -1,4 +1,3 @@
-# spec/factories/focus_sessions.rb
 FactoryBot.define do
   factory :focus_session do
     association :user   # creates a real user automatically
