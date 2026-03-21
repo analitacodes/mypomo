@@ -39,5 +39,25 @@ RSpec.describe FocusSessionsController, type: :request do
       expect(json["status"]).to eq("ok")
       expect(json["id"]).to be_present
     end
+
+    it "returns error for unauthenticated user" do 
+      delete "/session"
+
+      post "/focus_sessions", params: {
+        task_id: task.id,
+        duration_minutes: 25
+      }
+
+      expect(response.status).to eq(302)
+    end
+
+    it "returns error when no task_id is present" do
+      post "/focus_sessions", params: {
+        task_id: nil,
+        duration_minutes: 25
+      }
+
+      expect(response.status).to eq(422)
+    end
   end
 end
