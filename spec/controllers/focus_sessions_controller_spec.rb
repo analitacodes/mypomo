@@ -18,5 +18,26 @@ RSpec.describe FocusSessionsController, type: :request do
       duration_minutes: 25}
       expect(response.status).to eq(201)
     end
+
+    it "validates FocusSession has been created in the database" do
+    expect {
+      post "/focus_sessions", params: {
+      task_id: task.id,
+      duration_minutes: 25
+      }
+    }.to change(FocusSession, :count).by(1)
+    end
+
+    it "confirms JSON is returned" do
+      post "/focus_sessions", params: {
+        task_id: task.id,
+        duration_minutes: 25
+      }
+
+      json = JSON.parse(response.body)
+
+      expect(json["status"]).to eq("ok")
+      expect(json["id"]).to be_present
+    end
   end
 end
