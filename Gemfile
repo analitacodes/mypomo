@@ -50,7 +50,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'readline'
+  gem "readline"
   gem "rspec-rails"
   gem "factory_bot_rails"
 end

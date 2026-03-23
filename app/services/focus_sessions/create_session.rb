@@ -4,8 +4,8 @@ class FocusSessions::CreateSession
     @task_id = task_id
     @duration_minutes = duration_minutes
   end
-  
-  def call 
+
+  def call
     FocusSession.create!(
       user: @user,
       task_id: @task_id,
@@ -14,4 +14,3 @@ class FocusSessions::CreateSession
     )
   end
 end
-  

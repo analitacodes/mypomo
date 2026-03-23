@@ -7,6 +7,6 @@ class FocusSessionsController < ApplicationController
     ).call
 
     # render JSON back
-    render json: { status: "ok", id: session.id}, status: :created
+    render json: { status: "ok", id: session.id }, status: :created
   end
 end

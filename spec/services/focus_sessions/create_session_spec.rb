@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe FocusSessions::CreateSession do
   describe "#call" do
-    let(:user) { create(:user) } #using our users.rb factory to create a real user
-    let(:task) { create(:task, user: user) } #create a task to attach to user
+    let(:user) { create(:user) } # using our users.rb factory to create a real user
+    let(:task) { create(:task, user: user) } # create a task to attach to user
 
     it "creates a FocusSession with valid information" do
       expect { # this is our filing cabinet check to see how many sessions have been created
@@ -46,7 +46,7 @@ RSpec.describe FocusSessions::CreateSession do
     end
 
     it "verifies that a session is greater than 0" do
-      expect{
+      expect {
         FocusSessions::CreateSession.new(
           user: user,
           task_id: task.id,
