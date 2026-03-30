@@ -7,16 +7,10 @@
         placeholder: "What are you focusing on?",
         style: "width:95%;padding:7px;margin:3px 0 10px;" %>
 
-  <!-- Length input -->
-  <label for="length-input">Length (minutes)</label>
-  <%= number_field_tag :length_minutes, default_timer_minutes,
-        id: "length-input",
-        min: 1, step: 1,
-        style: "width:95%;padding:7px;margin:3px 0 10px;" %>
-
   <!-- Countdown display (static for now; logic comes later) -->
   <div id="timer-display"
-       style="font-size:48px;text-align:center;margin:8px 0;">
+        data-duration="<%= default_timer_minutes %>"
+        style="font-size:48px;text-align:center;margin:8px 0;">
     <%= mmss_for(default_timer_minutes) %>
   </div>
 
